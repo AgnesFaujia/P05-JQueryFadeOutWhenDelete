@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jquery Fade Out When Deleted</title>
+	<link rel="stylesheet" type="text/css" href="stylees.css">
+</head>
+
+<body>
+	<p class="name">Agnes Faujia</p>
+	<h1 class="title">Jquery Fade Out When Deleted</h1>
+	<table align="center" border="1">
+		<tr>
+			<th colspan="5">Top 5 of my Bestie</th>
+		</tr>
+		<tr id="baris__1" class="baris">
+			<td>1</td>
+			<td class="data" id="nama_mhs__1">Faujia</td>
+			<td class="data" id="alamat__1">Cirebon</td>
+			<td><button class="data tengah hapus" id="hapus__1">Hapus</button>
+			</td>
+		</tr>
+		<tr id="baris__2" class="baris">
+			<td>2</td>
+			<td class="data" id="nama_mhs__2">Ninda Siti Paridah</td>
+			<td class="data" id="alamat__2">Ciamis</td>
+			<td><button class="data tengah hapus" id="hapus__2">Hapus</button>
+			</td>
+		</tr>
+		<tr id="baris__3" class="baris">
+			<td>3</td>
+			<td class="data" id="nama_mhs__3">Nina Wahyunisari</td>
+			<td class="data" id="alamat__3">Kuningan</td>
+			<td><button class="data tengah hapus" id="hapus__3">Hapus</button>
+			</td>
+		</tr>
+		<tr id="baris__4" class="baris">
+			<td>4</td>
+			<td class="data" id="nama_mhs__4">Umi lathifah</td>
+			<td class="data" id="alamat__4">Yogyakarta</td>
+			<td><button class="data tengah hapus" id="hapus__4">Hapus</button>
+			</td>
+		</tr>
+		<tr id="baris__5" class="baris">
+			<td>5</td>
+			<td class="data" id="nama_mhs__5">Putri Salsabila</td>
+			<td class="data" id="alamat__5">Cirebon</td>
+			<td><button class="data tengah hapus" id="hapus__5">Hapus</button>
+			</td>
+		</tr>
+	</table>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+  $(".data").click(function () {
+    let isi = $(this).text();
+    let tid = $(this).prop("id");
+    let rid = tid.split("__");
+    let id_baris = rid[1];
+    let nama_mhs = $("#nama_mhs__" + id_baris).text();
+
+    if (isi == "Hapus") {
+      let konfirmasi = confirm(`Anda yakin ingin menghapus data atas nama ${nama_mhs} ??`);
+      if (!konfirmasi) return;
+
+      $("#baris__" + id_baris).fadeOut();
+    } else {
+      alert("Anda mengklik kolom yang berisi : " + $(this).html() + "!");
+    }
+  });
+});
+</script>
+
+
+
+
+
+</body>
+</html>
